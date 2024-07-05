@@ -14,7 +14,7 @@ Write-Output "Run cobolcheck."
 Set-Location $PSScriptRoot
 
 Invoke-Expression "$cobolcheck -p $slug"
-Invoke-Expression "cobc -xj -I /src  test.cob"
+Invoke-Expression "cobc -xj test.cob"
 
 if ($Lastexitcode -ne 0) {
   exit $Lastexitcode
