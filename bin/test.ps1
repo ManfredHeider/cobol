@@ -17,11 +17,6 @@ function verify_exercise ($practiceExerciseDir) {
     Copy-Item $stubBackupFile -Destination $stubFile
 }
 
-Get-ChildItem -Directory ./exercises/concept/ |
-    ForEach-Object {
-        Write-Output "Checking $_ exercise..."$_
-        verify_exercise $_
-    }
 Get-ChildItem -Directory ./exercises/practice/ |
     ForEach-Object {
         Write-Output "Checking $_ exercise..."
