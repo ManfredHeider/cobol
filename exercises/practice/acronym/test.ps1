@@ -15,7 +15,7 @@ Set-Location $PSScriptRoot
 
 Invoke-Expression "$cobolcheck -p $slug"
 #Invoke-Expression "cobc -xj test.cob"
-Invoke-Expression "cobc -xj -I${PSScriptRoot}\src test.cob"
+Invoke-Expression "mhcobc -xj -I${PSScriptRoot}\src test.cob"
 
 
 if ($Lastexitcode -ne 0) {
