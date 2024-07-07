@@ -12,11 +12,10 @@ if ($cobolcheckCmd) {
 
 Write-Output "Run cobolcheck."
 Set-Location $PSScriptRoot
+Write-Output "MH PSScriptRoot -> $PSScriptRoot"
 
 Invoke-Expression "$cobolcheck -p $slug"
-#Invoke-Expression "cobc -xj test.cob"
-Invoke-Expression "mhcobc -xj -I${PSScriptRoot}\src test.cob"
-
+Invoke-Expression "cobc -xj test.cob"
 
 if ($Lastexitcode -ne 0) {
   exit $Lastexitcode
