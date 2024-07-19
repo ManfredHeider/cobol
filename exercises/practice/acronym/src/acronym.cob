@@ -14,7 +14,7 @@
        01 IDX                      PIC 99.
        01 CHAR                     PIC X.
 
-       copy DRAT0084
+      *copy DRAT0084
 
        PROCEDURE DIVISION.
        ABBREVIATE.
