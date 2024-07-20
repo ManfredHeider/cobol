@@ -44,5 +44,8 @@ TestCase "apostrophes"
 TestCase "underscore emphasis"
 	MOVE "The Road _Not_ Taken" TO WS-ACRONYM
 	PERFORM ABBREVIATE
-	EXPECT WS-RESULT = "TRNT".CPY
+	EXPECT WS-RESULT = "TRNT".CPY.CPY
+
+TestCase "copy DRAT"
+	EXPECT K-KNR-PGES-AM-VERS = 10
 
