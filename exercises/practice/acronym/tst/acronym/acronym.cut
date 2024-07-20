@@ -46,6 +46,6 @@ TestCase "underscore emphasis"
 	PERFORM ABBREVIATE
 	EXPECT WS-RESULT = "TRNT".CPY.CPY
 
-TestCase "copy DRAT"
-	EXPECT K-KNR-PGES-AM-VERS = 10
+TestCase "copy DRAT0084 "
+	EXPECT K-KNR-PGES-AM-VERS = 0010
 
