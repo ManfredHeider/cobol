@@ -15,7 +15,7 @@ Set-Location $PSScriptRoot
 Write-Output "MH PSScriptRoot -> $PSScriptRoot"
 
 Invoke-Expression "$cobolcheck -p $slug"
-Invoke-Expression "cobc -xj -ID:\a\cobol\cobol\exercises\practice\acronym\src test.cob"
+Invoke-Expression "cobc -xj -ID:\a\cobol\cobol\exercises\practice\copy test.cob"
 
 if ($Lastexitcode -ne 0) {
   exit $Lastexitcode
