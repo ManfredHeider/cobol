@@ -1,0 +1,113 @@
+      *---------------------------------------------------------------*
+      *    Standard fuer alle Objekte unter PVCS VM
+      *            Datum      :  10.12.2013
+      *            Kategorie  :  Copystrecke
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright (c) 2018 ATLAS Dienstleistungen f. V. GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRKI2825.CPY  $
+      *    $Revision:   2.7  $
+      *
+      *    $Log:   L:/mf/CPY/DRKI2825.CPv  $
+      *
+      *   Rev 2.7   Oct 01 2018 09:38:20   t13ae52
+      *AKI01632: G48 - Hinzufügen neuer Kreditkarten
+      *
+      *   Rev 2.6   Sep 27 2018 16:59:28   t13ae52
+      *AKI01632: G48 - Hinzufügen neuer Kreditkarten
+      *
+      *   Rev 2.5   Jan 25 2018 06:53:00   t13ex39
+      *AKI01556: DeuBa zusätzliche  PINs OZPs
+      *
+      *   Rev 2.3   Nov 06 2015 12:27:16   t13ex73
+      *AKI01385: Korrektur der Darstellung des Eigenvermitteltkennz
+      *eichens   OZP ZTKI0466
+      *
+      *   Rev 2.2   Apr 16 2014 17:12:20   t13ex19
+      *AKI01269: Tabelle DBPRODUKT -> Analog OKI.Kreditkarten_Eigen
+      *
+      *   Rev 2.1   Jan 23 2014 15:36:04   i13az40
+      *AKI01269: Tabelle DBPRODUKT -> Analog OKI.Kreditkarten_Eigen
+      *
+      *   Rev 2.0   Dec 10 2013 16:12:18 I13AZ40
+      *Archiverstellung
+      *
+      *---------------------------------------------------------------*
+      *****************************************************************
+      *    COPY-MEMBER: DRKI2825                                      *
+      *    --------------------------------------------------------   *
+      *    SCHNITTSTELLE FÜR DIE FUNKTION DRKI2825                    *
+      *    --------------------------------------------------------   *
+      ****************************************************************
+      *   ERZEUGT MIT OZPGEN         27.09.2018 / 13:30:43 / T13AE52
+      *****************************************************************
+      *    VERSION
+      ****************************************************************
+      * AENDERUNGEN:                                                 *
+      * AUFTRAG ! DATUM  !VER ! AENDERUNG                 ! NAME     *
+      * -------------------------------------------------------------*
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *                                                              *
+      * ENDE-LOGBUCH                                                 *
+      ****************************************************************
+      *
+      *    DIESES COPY ENTHÄLT DIE EIN- UND AUSGABEPARAMETER
+      *    FÜR DIE FUNKTION DRKI2825
+      *    AUSSER: DEM FUNKTIONSNAMEN,
+      *            DEM ERR-ERROR-BEREICH UND
+      *            DEM STANDARD-STATUS-BEREICH
+      *            (JEWEILS SEPARATE COPYS)
+      *
+      *    >>>  SELECT  <<<
+      *
+      ****************************************************************
+      *
+       01  PI-DRKI2825.
+           05  PI-DRKI2825-KEY.
+
+
+ANF   *        %M_PI_KEY%
+             10 PI-DRKI2825-KKAKARTENART   PIC  X(0003).
+             10 PI-DRKI2825-KKAKARTENNR   PIC  X(0016).
+             10 PI-DRKI2825-KKAVERTRAGSID   PIC  X(0013).
+END   *
+
+      *
+       01  PO-DRKI2825.
+           05  PO-DRKI2825-RC                     PIC  X(003).
+               88 PO-DRKI2825-RC-OK               VALUE 'OK '.
+               88 PO-DRKI2825-RC-NOT-FOUND        VALUE 'NFD'.
+      *
+ANF   *        %M_PO_DATEN_NI%
+END   *
+
+           05  PO-DRKI2825-DATEN.
+
+
+ANF   *        %M_PO_DATEN%
+             10 PO-DRKI2825-KKAABRECHKTONR   PIC  X(0010).
+             10 PO-DRKI2825-KKAABSCHLUSSVBNR   PIC S9(9) COMP.
+             10 PO-DRKI2825-KKABLZABRECHKTO   PIC  X(0008).
+             10 PO-DRKI2825-KKAEIGENVERMKZ   PIC  X(0001).
+             10 PO-DRKI2825-KKAFILNRABRECHKTO   PIC S9(4) COMP.
+             10 PO-DRKI2825-KKAHAUPTKARTENNR   PIC  X(0016).
+             10 PO-DRKI2825-KKALFDNR   PIC S9(4) COMP.
+             10 PO-DRKI2825-KKALIMIT   PIC S9(6)V9(2) COMP-3.
+             10 PO-DRKI2825-KKAMAHNSTATUS   PIC  X(0001).
+             10 PO-DRKI2825-KKAOEFFNUNGSDAT   PIC  X(010).
+             10 PO-DRKI2825-KKAPIN   PIC S9(9) COMP.
+             10 PO-DRKI2825-KKAPRODUKTID   PIC S9(4) COMP.
+             10 PO-DRKI2825-KKAPRODUKTLFDNR   PIC S9(4) COMP.
+             10 PO-DRKI2825-KKAPROVISIONKZ   PIC  X(0001).
+             10 PO-DRKI2825-KKAVNRHAUPTKARTE   PIC  X(0015).
+             10 PO-DRKI2825-LETZTEAENDERUNG   PIC  X(0026).
+END   *
+
+
+      *
+      ******* ENDE COPY-MEMBER ***************************************
+
+

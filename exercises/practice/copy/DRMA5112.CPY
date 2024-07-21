@@ -1,0 +1,49 @@
+      *---------------------------------------------------------------*
+      *    Standard fuer alle Objekte unter PVCS VM
+      *            Datum      :  16.07.2015
+      *            Kategorie  :  Copystrecke
+      *---------------------------------------------------------------*
+      *    Copyright (c) 2015 ATLAS Dienstleistungen f. V. GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRMA5112.CPY  $
+      *    $Revision:   2.1  $
+      *
+      *    $Log:   L:/mf/CPY/DRMA5112.CPv  $
+      *
+      *   Rev 2.1   Jul 28 2015 14:43:22   t13ac19
+      *AMA00132: USt: KOMA0505-VB-Abrechnung - Teil 1 - Copies
+      *
+      *   Rev 2.0   Jul 16 2015 15:38:40   t13ac19
+      *Archiverstellung
+      *
+      *---------------------------------------------------------------*
+      **************************************************************
+      *
+      *     EINGABE: UPMA5036   FUNKTION V2
+      *
+      *     SOURCE-NAME      :  DRMA5112
+      *
+      *     GENERIERUNG      :  16.07.2015/17:28:51
+      *     DURCH            :  PMMA5004/01.00.01
+      *
+      * LOGBUCH
+      * AENDERUNGEN:
+      * AUFTRAG ! DATUM  !VER  ! AENDERUNG                 ! NAME
+      * --------------------------------------------------------------
+      * AMA00132!16.07.15!2.1  ! NEUERSTELLUNG             ! O.WILHELM
+      *         !        !     !                           !
+      *         !        !     !                           !
+      *
+      * ENDELOGBUCH
+      **************************************************************
+      *
+      *
+           05 DRMA5112.
+              07 DGAT0100.
+                 09 FUNKTION            pic X(8).
+              07 VERSION                pic X.
+              07 VG                     pic 9(4).
+              07 VBNR                   pic 9(9).
+      *
+      **************************************************************
+

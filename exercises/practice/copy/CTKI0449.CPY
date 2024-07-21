@@ -1,0 +1,367 @@
+      *---------------------------------------------------------------*
+      *    Standard fuer alle Objekte unter PVCS VM
+      *            Datum      :  20/07/12
+      *            Kategorie  :  Copystrecke
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright (c) 2012 ATLAS Dienstleistungen f. V. GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   CTKI0449.CPY  $
+      *    $Revision:   2.7  $
+      *
+      *    $Log:   L:/mf/CPY/CTKI0449.CPv  $
+      *
+      *   Rev 2.7   Nov 16 2017 11:22:10   t13ex78
+      *AKI01532: Programme und Copies - OZPs
+      *
+      *   Rev 2.6   Sep 20 2017 08:10:56   t13ex78
+      *AKI01532: Programme und Copies - OZPs
+      *
+      *   Rev 2.5   Sep 04 2017 09:09:40   t13ex78
+      *AKI01532: Programme und Copies
+      *
+      *   Rev 2.4   Aug 23 2012 10:34:52   t13ex39
+      *AKI01141:  O  Z  P  DTA-Erweiterung Fondsdepot Bank "WpHG"
+      *
+      *   Rev 2.3   Jul 25 2012 13:02:00   t13ex39
+      *AKI01141:  O  Z  P  DTA-Erweiterung Fondsdepot Bank "WpHG"
+      *
+      *   Rev 2.2   Jul 23 2012 08:08:36   t13ex39
+      *AKI01141:  O  Z  P  DTA-Erweiterung Fondsdepot Bank "WpHG"
+      *
+      *   Rev 2.1   Jul 20 2012 11:00:56   t13ex39
+      *AKI01141:  O  Z  P  DTA-Erweiterung Fondsdepot Bank "WpHG"
+      *
+      *   Rev 2.0   Jul 20 2012 07:49:18   T13EX39
+      *Archiverstellung
+      *
+      *---------------------------------------------------------------*
+CCC005*    EXEC SQL DECLARE VERTRAGWPHG TABLE
+CCC004*    ( WPHGVERTRAGSID                 CHAR(13) NOT NULL,
+CCC004*      WPHGBERUF_KTY                  SMALLINT NOT NULL,
+CCC004*      WPHGBERUF_KNR                  SMALLINT NOT NULL,
+CCC004*      WPHGANLZIEL_KTY                SMALLINT NOT NULL,
+CCC004*      WPHGANLZIEL_KNR                SMALLINT NOT NULL,
+CCC004*      WPHGANLDAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGANLDAUER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGANZKAUF_KTY                SMALLINT NOT NULL,
+CCC004*      WPHGANZKAUF_KNR                SMALLINT NOT NULL,
+CCC004*      WPHGORDERGR_KTY                SMALLINT NOT NULL,
+CCC004*      WPHGORDERGR_KNR                SMALLINT NOT NULL,
+CCC004*      WPHGGESCHKRBASIS               CHAR(1),
+CCC004*      WPHGHOEHEKRRAHM                DECIMAL(8, 2),
+CCC004*      WPHGWPDBERFREI                 CHAR(1),
+CCC004*      WPDIENSTANLBER                 CHAR(1),
+CCC004*      WPHGWPDVERMVERW                CHAR(1),
+CCC004*      WPHGALSPRVERMAUF               CHAR(1),
+CCC004*      WPHGALSRENTVORS                CHAR(1),
+CCC004*      WPHGASGESRIVORS                CHAR(1),
+CCC004*      WPHGALSWOHNEIGEN               CHAR(1),
+CCC004*      WPHGALSKEINKZIEL               CHAR(1),
+CCC004*      WPHGKTOGUTH_KTY                SMALLINT NOT NULL,
+CCC004*      WPHGKTOGUTH_KNR                SMALLINT NOT NULL,
+CCC004*      WPHGWPVERM_KTY                 SMALLINT NOT NULL,
+CCC004*      WPHGWPVERM_KNR                 SMALLINT NOT NULL,
+CCC004*      WPHGIMMOVERM_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGIMMOVERM_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGSONSVERM_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGSONSVERM_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGVERBINDL_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGVERBINDL_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGNETTVERM_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGNETTVERM_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGNICHSELB_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGNICHSELB_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGSELBST_KTY                 SMALLINT NOT NULL,
+CCC004*      WPHGSELBST_KNR                 SMALLINT NOT NULL,
+CCC004*      WPHGKAPVERM_KTY                SMALLINT NOT NULL,
+CCC004*      WPHGKAPVERM_KNR                SMALLINT NOT NULL,
+CCC004*      WPHGWEITERE_KTY                SMALLINT NOT NULL,
+CCC004*      WPHGWEITERE_KNR                SMALLINT NOT NULL,
+CCC004*      WPHGAUSGABEN_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGAUSGABEN_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGFREIELIQ_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGFREIELIQ_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGKER1RENTENF                CHAR(1),
+CCC004*      WPHGKE1DAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGKE1DAUER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGKER2RENTENF                CHAR(1),
+CCC004*      WPHGKER2STRUKTWP               CHAR(1),
+CCC004*      WPHGKE2DAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGKE2DAUER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGKER3RENTENF                CHAR(1),
+CCC004*      WPHGKER3AKTIENF                CHAR(1),
+CCC004*      WPHGKER3STRUKTWP               CHAR(1),
+CCC004*      WPHGKER3ALTINV                 CHAR(1),
+CCC004*      WPHGKE3DAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGKE3DAUER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGKER4RENTENF                CHAR(1),
+CCC004*      WPHGKER4AKTIENF                CHAR(1),
+CCC004*      WPHGKER4STRUKTWP               CHAR(1),
+CCC004*      WPHGKER4ALTINV                 CHAR(1),
+CCC004*      WPHGKE4DAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGKE4DAUER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGKER5RENTENF                CHAR(1),
+CCC004*      WPHGKER5AKTIENF                CHAR(1),
+CCC004*      WPHGKER5STRUKTWP               CHAR(1),
+CCC004*      WPHGKER5AITERMIN               CHAR(1),
+CCC004*      WPHGKE5DAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGKE5DAUER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGGPARTNER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGGPARTNER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGDATUNTERSCHR               DATE,
+CCC004*      WPHGKEINEWPDNSTL               CHAR(1) NOT NULL,
+CCC004*      LETZTEAENDERUNG                TIMESTAMP,
+CCC004*      WPHGKER2DMISCHF                CHAR(1),
+CCC004*      WPHGKER2IMMOF                  CHAR(1),
+CCC004*      WPHGKER2STRUKINV               CHAR(1),
+CCC004*      WPHGKER2KAPGESPR               CHAR(1),
+CCC004*      WPHGKER3KAPGESPR               CHAR(1),
+CCC004*      WPHGKER3KAPGESP90              CHAR(1),
+CCC004*      WPHGKER4RENTEETF               CHAR(1),
+CCC004*      WPHGKER4GELDMF                 CHAR(1),
+CCC004*      WPHGKER4AKTFETF                CHAR(1),
+CCC004*      WPHGKER4MISCHF                 CHAR(1),
+CCC004*      WPHGKER4IMMOF                  CHAR(1),
+CCC004*      WPHGKER4ROHSTF                 CHAR(1),
+CCC004*      WPHGKER4SYNETF                 CHAR(1),
+CCC004*      WPHGKER4STRUKPR                CHAR(1),
+CCC004*      WPHGKER4PROD14                 CHAR(1),
+CCC004*      WPHGKER4PROD75                 CHAR(1),
+CCC004*      WPHGKER5ROHF                   CHAR(1),
+CCC004*      WPHGKER5SYNETFA                CHAR(1),
+CCC004*      WPHGKER5SYNETFR                CHAR(1),
+CCC004*      WPHGKER5STRUKRF                CHAR(1),
+CCC004*      WPHGKER6HEBELPR                CHAR(1),
+CCC004*      WPHGKER6LONGPOS                CHAR(1),
+CCC004*      WPHGKE6DAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGKE6DAUER_KNR               SMALLINT NOT NULL,
+CCC004*      WPHGKER7SHORTPOS               CHAR(1),
+CCC004*      WPHGKER7FUTURES                CHAR(1),
+CCC004*      WPHGKER7DERIVATE               CHAR(1),
+CCC004*      WPHGKER7DEVTERM                CHAR(1),
+CCC004*      WPHGKE7DAUER_KTY               SMALLINT NOT NULL,
+CCC004*      WPHGKE7DAUER_KNR               SMALLINT NOT NULL
+CCC003*    ) END-EXEC.
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE VERTRAGWPHG                 *
+      ******************************************************************
+       01  VERTRAGWPHG-GESAMT.
+        05 NI-VERTRAGWPHG-TAB.
+           10 NI-VERTRAGWPHG-ELE PIC S9(04) COMP OCCURS 105 TIMES.
+        05 NI-VERTRAGWPHG REDEFINES NI-VERTRAGWPHG-TAB.
+           10 NI-WPHGVERTRAGSID     PIC S9(4) COMP.
+           10 NI-WPHGBERUF-KTY      PIC S9(4) COMP.
+           10 NI-WPHGBERUF-KNR      PIC S9(4) COMP.
+           10 NI-WPHGANLZIEL-KTY    PIC S9(4) COMP.
+           10 NI-WPHGANLZIEL-KNR    PIC S9(4) COMP.
+           10 NI-WPHGANLDAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGANLDAUER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGANZKAUF-KTY    PIC S9(4) COMP.
+           10 NI-WPHGANZKAUF-KNR    PIC S9(4) COMP.
+           10 NI-WPHGORDERGR-KTY    PIC S9(4) COMP.
+           10 NI-WPHGORDERGR-KNR    PIC S9(4) COMP.
+           10 NI-WPHGGESCHKRBASIS   PIC S9(4) COMP.
+           10 NI-WPHGHOEHEKRRAHM    PIC S9(4) COMP.
+           10 NI-WPHGWPDBERFREI     PIC S9(4) COMP.
+           10 NI-WPDIENSTANLBER     PIC S9(4) COMP.
+           10 NI-WPHGWPDVERMVERW    PIC S9(4) COMP.
+           10 NI-WPHGALSPRVERMAUF   PIC S9(4) COMP.
+           10 NI-WPHGALSRENTVORS    PIC S9(4) COMP.
+           10 NI-WPHGASGESRIVORS    PIC S9(4) COMP.
+           10 NI-WPHGALSWOHNEIGEN   PIC S9(4) COMP.
+           10 NI-WPHGALSKEINKZIEL   PIC S9(4) COMP.
+           10 NI-WPHGKTOGUTH-KTY    PIC S9(4) COMP.
+           10 NI-WPHGKTOGUTH-KNR    PIC S9(4) COMP.
+           10 NI-WPHGWPVERM-KTY     PIC S9(4) COMP.
+           10 NI-WPHGWPVERM-KNR     PIC S9(4) COMP.
+           10 NI-WPHGIMMOVERM-KTY   PIC S9(4) COMP.
+           10 NI-WPHGIMMOVERM-KNR   PIC S9(4) COMP.
+           10 NI-WPHGSONSVERM-KTY   PIC S9(4) COMP.
+           10 NI-WPHGSONSVERM-KNR   PIC S9(4) COMP.
+           10 NI-WPHGVERBINDL-KTY   PIC S9(4) COMP.
+           10 NI-WPHGVERBINDL-KNR   PIC S9(4) COMP.
+           10 NI-WPHGNETTVERM-KTY   PIC S9(4) COMP.
+           10 NI-WPHGNETTVERM-KNR   PIC S9(4) COMP.
+           10 NI-WPHGNICHSELB-KTY   PIC S9(4) COMP.
+           10 NI-WPHGNICHSELB-KNR   PIC S9(4) COMP.
+           10 NI-WPHGSELBST-KTY     PIC S9(4) COMP.
+           10 NI-WPHGSELBST-KNR     PIC S9(4) COMP.
+           10 NI-WPHGKAPVERM-KTY    PIC S9(4) COMP.
+           10 NI-WPHGKAPVERM-KNR    PIC S9(4) COMP.
+           10 NI-WPHGWEITERE-KTY    PIC S9(4) COMP.
+           10 NI-WPHGWEITERE-KNR    PIC S9(4) COMP.
+           10 NI-WPHGAUSGABEN-KTY   PIC S9(4) COMP.
+           10 NI-WPHGAUSGABEN-KNR   PIC S9(4) COMP.
+           10 NI-WPHGFREIELIQ-KTY   PIC S9(4) COMP.
+           10 NI-WPHGFREIELIQ-KNR   PIC S9(4) COMP.
+           10 NI-WPHGKER1RENTENF    PIC S9(4) COMP.
+           10 NI-WPHGKE1DAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGKE1DAUER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGKER2RENTENF    PIC S9(4) COMP.
+           10 NI-WPHGKER2STRUKTWP   PIC S9(4) COMP.
+           10 NI-WPHGKE2DAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGKE2DAUER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGKER3RENTENF    PIC S9(4) COMP.
+           10 NI-WPHGKER3AKTIENF    PIC S9(4) COMP.
+           10 NI-WPHGKER3STRUKTWP   PIC S9(4) COMP.
+           10 NI-WPHGKER3ALTINV     PIC S9(4) COMP.
+           10 NI-WPHGKE3DAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGKE3DAUER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGKER4RENTENF    PIC S9(4) COMP.
+           10 NI-WPHGKER4AKTIENF    PIC S9(4) COMP.
+           10 NI-WPHGKER4STRUKTWP   PIC S9(4) COMP.
+           10 NI-WPHGKER4ALTINV     PIC S9(4) COMP.
+           10 NI-WPHGKE4DAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGKE4DAUER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGKER5RENTENF    PIC S9(4) COMP.
+           10 NI-WPHGKER5AKTIENF    PIC S9(4) COMP.
+           10 NI-WPHGKER5STRUKTWP   PIC S9(4) COMP.
+           10 NI-WPHGKER5AITERMIN   PIC S9(4) COMP.
+           10 NI-WPHGKE5DAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGKE5DAUER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGGPARTNER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGGPARTNER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGDATUNTERSCHR   PIC S9(4) COMP.
+           10 NI-WPHGKEINEWPDNSTL   PIC S9(4) COMP.
+           10 NI-LETZTEAENDERUNG    PIC S9(4) COMP.
+           10 NI-WPHGKER2DMISCHF    PIC S9(4) COMP.
+           10 NI-WPHGKER2IMMOF      PIC S9(4) COMP.
+           10 NI-WPHGKER2STRUKINV   PIC S9(4) COMP.
+           10 NI-WPHGKER2KAPGESPR   PIC S9(4) COMP.
+           10 NI-WPHGKER3KAPGESPR   PIC S9(4) COMP.
+           10 NI-WPHGKER3KAPGESP90  PIC S9(4) COMP.
+           10 NI-WPHGKER4RENTEETF   PIC S9(4) COMP.
+           10 NI-WPHGKER4GELDMF     PIC S9(4) COMP.
+           10 NI-WPHGKER4AKTFETF    PIC S9(4) COMP.
+           10 NI-WPHGKER4MISCHF     PIC S9(4) COMP.
+           10 NI-WPHGKER4IMMOF      PIC S9(4) COMP.
+           10 NI-WPHGKER4ROHSTF     PIC S9(4) COMP.
+           10 NI-WPHGKER4SYNETF     PIC S9(4) COMP.
+           10 NI-WPHGKER4STRUKPR    PIC S9(4) COMP.
+           10 NI-WPHGKER4PROD14     PIC S9(4) COMP.
+           10 NI-WPHGKER4PROD75     PIC S9(4) COMP.
+           10 NI-WPHGKER5ROHF       PIC S9(4) COMP.
+           10 NI-WPHGKER5SYNETFA    PIC S9(4) COMP.
+           10 NI-WPHGKER5SYNETFR    PIC S9(4) COMP.
+           10 NI-WPHGKER5STRUKRF    PIC S9(4) COMP.
+           10 NI-WPHGKER6HEBELPR    PIC S9(4) COMP.
+           10 NI-WPHGKER6LONGPOS    PIC S9(4) COMP.
+           10 NI-WPHGKE6DAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGKE6DAUER-KNR   PIC S9(4) COMP.
+           10 NI-WPHGKER7SHORTPOS   PIC S9(4) COMP.
+           10 NI-WPHGKER7FUTURES    PIC S9(4) COMP.
+           10 NI-WPHGKER7DERIVATE   PIC S9(4) COMP.
+           10 NI-WPHGKER7DEVTERM    PIC S9(4) COMP.
+           10 NI-WPHGKE7DAUER-KTY   PIC S9(4) COMP.
+           10 NI-WPHGKE7DAUER-KNR   PIC S9(4) COMP.
+        05 DCL-VERTRAGWPHG.
+           10 WPHGVERTRAGSID       PIC X(13).
+           10 WPHGBERUF-KTY        PIC S9(4) USAGE COMP.
+           10 WPHGBERUF-KNR        PIC S9(4) USAGE COMP.
+           10 WPHGANLZIEL-KTY      PIC S9(4) USAGE COMP.
+           10 WPHGANLZIEL-KNR      PIC S9(4) USAGE COMP.
+           10 WPHGANLDAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGANLDAUER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGANZKAUF-KTY      PIC S9(4) USAGE COMP.
+           10 WPHGANZKAUF-KNR      PIC S9(4) USAGE COMP.
+           10 WPHGORDERGR-KTY      PIC S9(4) USAGE COMP.
+           10 WPHGORDERGR-KNR      PIC S9(4) USAGE COMP.
+           10 WPHGGESCHKRBASIS     PIC X(1).
+           10 WPHGHOEHEKRRAHM      PIC S9(6)V9(2) USAGE COMP-3.
+           10 WPHGWPDBERFREI       PIC X(1).
+           10 WPDIENSTANLBER       PIC X(1).
+           10 WPHGWPDVERMVERW      PIC X(1).
+           10 WPHGALSPRVERMAUF     PIC X(1).
+           10 WPHGALSRENTVORS      PIC X(1).
+           10 WPHGASGESRIVORS      PIC X(1).
+           10 WPHGALSWOHNEIGEN     PIC X(1).
+           10 WPHGALSKEINKZIEL     PIC X(1).
+           10 WPHGKTOGUTH-KTY      PIC S9(4) USAGE COMP.
+           10 WPHGKTOGUTH-KNR      PIC S9(4) USAGE COMP.
+           10 WPHGWPVERM-KTY       PIC S9(4) USAGE COMP.
+           10 WPHGWPVERM-KNR       PIC S9(4) USAGE COMP.
+           10 WPHGIMMOVERM-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGIMMOVERM-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGSONSVERM-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGSONSVERM-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGVERBINDL-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGVERBINDL-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGNETTVERM-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGNETTVERM-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGNICHSELB-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGNICHSELB-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGSELBST-KTY       PIC S9(4) USAGE COMP.
+           10 WPHGSELBST-KNR       PIC S9(4) USAGE COMP.
+           10 WPHGKAPVERM-KTY      PIC S9(4) USAGE COMP.
+           10 WPHGKAPVERM-KNR      PIC S9(4) USAGE COMP.
+           10 WPHGWEITERE-KTY      PIC S9(4) USAGE COMP.
+           10 WPHGWEITERE-KNR      PIC S9(4) USAGE COMP.
+           10 WPHGAUSGABEN-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGAUSGABEN-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGFREIELIQ-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGFREIELIQ-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGKER1RENTENF      PIC X(1).
+           10 WPHGKE1DAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGKE1DAUER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGKER2RENTENF      PIC X(1).
+           10 WPHGKER2STRUKTWP     PIC X(1).
+           10 WPHGKE2DAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGKE2DAUER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGKER3RENTENF      PIC X(1).
+           10 WPHGKER3AKTIENF      PIC X(1).
+           10 WPHGKER3STRUKTWP     PIC X(1).
+           10 WPHGKER3ALTINV       PIC X(1).
+           10 WPHGKE3DAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGKE3DAUER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGKER4RENTENF      PIC X(1).
+           10 WPHGKER4AKTIENF      PIC X(1).
+           10 WPHGKER4STRUKTWP     PIC X(1).
+           10 WPHGKER4ALTINV       PIC X(1).
+           10 WPHGKE4DAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGKE4DAUER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGKER5RENTENF      PIC X(1).
+           10 WPHGKER5AKTIENF      PIC X(1).
+           10 WPHGKER5STRUKTWP     PIC X(1).
+           10 WPHGKER5AITERMIN     PIC X(1).
+           10 WPHGKE5DAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGKE5DAUER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGGPARTNER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGGPARTNER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGDATUNTERSCHR     PIC X(10).
+           10 WPHGKEINEWPDNSTL     PIC X(1).
+           10 LETZTEAENDERUNG      PIC X(26).
+           10 WPHGKER2DMISCHF      PIC X(1).
+           10 WPHGKER2IMMOF        PIC X(1).
+           10 WPHGKER2STRUKINV     PIC X(1).
+           10 WPHGKER2KAPGESPR     PIC X(1).
+           10 WPHGKER3KAPGESPR     PIC X(1).
+           10 WPHGKER3KAPGESP90    PIC X(1).
+           10 WPHGKER4RENTEETF     PIC X(1).
+           10 WPHGKER4GELDMF       PIC X(1).
+           10 WPHGKER4AKTFETF      PIC X(1).
+           10 WPHGKER4MISCHF       PIC X(1).
+           10 WPHGKER4IMMOF        PIC X(1).
+           10 WPHGKER4ROHSTF       PIC X(1).
+           10 WPHGKER4SYNETF       PIC X(1).
+           10 WPHGKER4STRUKPR      PIC X(1).
+           10 WPHGKER4PROD14       PIC X(1).
+           10 WPHGKER4PROD75       PIC X(1).
+           10 WPHGKER5ROHF         PIC X(1).
+           10 WPHGKER5SYNETFA      PIC X(1).
+           10 WPHGKER5SYNETFR      PIC X(1).
+           10 WPHGKER5STRUKRF      PIC X(1).
+           10 WPHGKER6HEBELPR      PIC X(1).
+           10 WPHGKER6LONGPOS      PIC X(1).
+           10 WPHGKE6DAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGKE6DAUER-KNR     PIC S9(4) USAGE COMP.
+           10 WPHGKER7SHORTPOS     PIC X(1).
+           10 WPHGKER7FUTURES      PIC X(1).
+           10 WPHGKER7DERIVATE     PIC X(1).
+           10 WPHGKER7DEVTERM      PIC X(1).
+           10 WPHGKE7DAUER-KTY     PIC S9(4) USAGE COMP.
+           10 WPHGKE7DAUER-KNR     PIC S9(4) USAGE COMP.
+      ************************** ENDE-DCLGEN *************************
+ 
+

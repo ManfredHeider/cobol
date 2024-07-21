@@ -1,0 +1,64 @@
+      *---------------------------------------------------------------*
+      *    Standard für alle Objekte unter PVCS
+      *            Datum   :  Januar 1999
+      *            Kopf aus:  N:\PROFILE\KOPFCPY.DAT
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright 1999 ATLAS Dienstleistungs GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRPA1387.CPY  $
+      *    $Revision:   2.1  $
+      *
+      *    $Log:   L:\MF\CPY\DRPA1387.CPv  $
+      *
+      *   Rev 2.1   24 May 2000 10:26:50   T13EX23
+      *APA00090 - Neue Funktion fuer ZTPA0106
+      *
+      *   Rev 2.0   Apr 11 2000 16:58:02   P13SP20
+      *Archiverstellung
+      *
+      *---------------------------------------------------------------*
+     *****************************************************************
+      *    COPY-MEMBER: DRPA1387                                      *
+      *    --------------------------------------------------------   *
+      *    FUNKTIONSAUFRUF: MASSENUPDATE PVER_AKT_PIN                 *
+      *    --------------------------------------------------------   *
+      *    ERSTELLT: GRAY                                             *
+      *    DATUM:    22.05.2000                                       *
+      *****************************************************************
+      *    VERSION
+      ****************************************************************
+      * AENDERUNGEN:                                                 *
+      * AUFTRAG ! DATUM  !VER ! AENDERUNG                 ! NAME     *
+      * -------------------------------------------------------------*
+      * APA00090!22.05.00! 01 ! NEU                       ! GRAY     *
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *                                                              *
+      *                                                              *
+      * ENDE-LOGBUCH                                                 *
+      ****************************************************************
+      *                                                              *
+      *    DIESES COPY ENTHÄLT DIE EIN- UND AUSGABEPARAMETER         *
+      *    FÜR DIE FUNKTION DRPA1387                                 *
+      *    AUSSER: DEM FUNKTIONSNAMEN,                               *
+      *            DEM ERR-ERROR-BEREICH UND                         *
+      *            DEM STANDARD-STATUS-BEREICH                       *
+      *            (JEWEILS SEPARATE COPYS)                          *
+      ****************************************************************
+      *
+       01 PI-DRPA1387.
+          05 PI-DRPA1387-PROGRAMM              PIC  X(008).
+          05 PI-DRPA1387-PVER-DATEN.
+             10 PI-DRPA1387-PGEB-GES           PIC S9(04)  USAGE COMP.
+             10 PI-DRPA1387-PRINTE             PIC S9(15)V USAGE COMP-3.
+             10 PI-DRPA1387-PVER-AKT-PIN       PIC S9(09)  USAGE COMP.
+      *
+       01 PO-DRPA1387.
+          05 PO-DRPA1387-RC                         PIC  X(003).
+             88 PO-DRPA1387-RC-OK                         VALUE 'OK '.
+             88 PO-DRPA1387-RC-NOT-FOUND                  VALUE 'NFD'.
+      *
+      ******* ENDE COPY-MEMBER **************************************

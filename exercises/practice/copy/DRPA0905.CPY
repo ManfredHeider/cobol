@@ -1,0 +1,85 @@
+      *---------------------------------------------------------------*
+      *    Standard für alle Objekte unter PVCS
+      *            Datum   :  November 1995
+      *            Kopf aus:  N:\PROFILE\KOPFCBL.DAT
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright 1995 ATLAS Dienstleistungs GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRPA0905.CPY  $
+      *    $Revision:   2.1  $
+      *
+      *    $Log:   L:/mf/CPY/DRPA0905.CPv  $
+      *
+      *   Rev 2.1   Mar 10 2014 08:51:18   t13ex67
+      *APA01526: Projekt Kalypso Teilprojekt 5 (Provisionsverteilun
+      *g): PEG, PO21,PO23,PF14, PF15, PO25,PO26
+      *
+      *   Rev 2.0   May 26 1999 15:29:12   T13EX21
+      *APA00012 - Neuerstellung
+      *
+      *   Rev 1.0   01 Apr 1998 14:15:06   P13SP99
+      *Initial revision.
+      *
+      *---------------------------------------------------------------*
+      ****************************************************************
+      *    COPY-MEMBER: DRPA0905 FUNKTION LIST PM JE PRODUKT         *
+      *                                   FüR DIALOG PO22            *
+      *                                                              *
+      *    -------------------------------------------------------   *
+      *    ERSTELLT: BOHLINGER                                       *
+      *    DATUM:    04.08.1998                                      *
+      ****************************************************************
+      *    VERSION   01                                              *
+      ****************************************************************
+      * AENDERUNGEN:                                                 *
+      * AUFTRAG ! DATUM  !VER ! AENDERUNG                 ! NAME     *
+      * -------------------------------------------------------------*
+      * APA00012!04.08.98! 01 !NEU                        !BOHLINGER *
+      * APA01526!06.03.14!2.01! FOLGENR. DREISTELLIG      ! STORCH   *
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *                                                              *
+      * ENDE-LOGBUCH                                                 *
+      ****************************************************************
+      *                                                              *
+      *    DIESES COPY ENTHÄLT DIE EIN- UND AUSGABEPARAMETER         *
+      *    FÜR DIE FUNKTION DRPA0905                                 *
+      *    AUSSER: DEM FUNKTIONSNAMEN,                               *
+      *            DEM ERR-ERROR-BEREICH UND                         *
+      *            DEM STANDARD-STATUS-BEREICH                       *
+      *            (JEWEILS SEPARATE COPYS)                          *
+      *                                                              *
+      ****************************************************************
+       01 PI-DRPA0905.
+          05 PI-DRPA0905-UFKT                    PIC  9(02).
+          05 PI-DRPA0905-PRINTE                  PIC S9(015)
+                                                 PACKED-DECIMAL.
+          05 PI-DRPA0905-AUSWAHL-KRITERIEN.
+             10 PI-DRPA0905-PGEB-GES             PIC 9(002).
+             10 PI-DRPA0905-VNR                  PIC X(015).
+             10 PI-DRPA0905-FAELLIG-VON          PIC X(010).
+             10 PI-DRPA0905-FAELLIG-BIS          PIC X(010).
+             10 PI-DRPA0905-S-FAELLIG            PIC X(001).
+060314*      10 PI-DRPA0905-FOLGE-NR             PIC 9(002).
+060314       10 PI-DRPA0905-FOLGE-NR             PIC 9(003).
+             10 PI-DRPA0905-S-FOLGE-NR           PIC X(001).
+
+      *
+       01 PO-DRPA0905.
+          05  PO-DRPA0905-RC                     PIC  X(003).
+              88 PO-DRPA0905-RC-OK                        VALUE 'OK '.
+              88 PO-DRPA0905-RC-EOF                       VALUE 'EOF'.
+              88 PO-DRPA0905-RC-LEER                      VALUE 'LER'.
+
+
+          05 PO-DRPA0905-MELDUNG.
+             10 PO-DRPA0905-MELDUNG-TYP        PIC  X(001).
+             10 PO-DRPA0905-MELDUNG-NR         PIC S9(004) BINARY.
+
+          05 PO-DRPA0905-ERGEBNISZEILE.
+             COPY DRPA0934.
+
+      *
+      ******** Ende Copy-Member **************************************

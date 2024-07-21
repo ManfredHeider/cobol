@@ -1,0 +1,98 @@
+      *---------------------------------------------------------------*
+      *    Standard für alle Objekte unter PVCS
+      *            Datum   :  November 1995
+      *            Kopf aus:  N:\PROFILE\KOPFCBL.DAT
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright 1995 ATLAS Dienstleistungs GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRPA0150.CPY  $
+      *    $Revision:   2.4  $
+      *
+      *    $Log:   L:\MF\CPY\DRPA0150.CPv  $
+      *
+      *   Rev 2.4   14 Nov 2000 14:39:36   T13AE34
+      *AAN00285-PEW Hypo
+      *
+      *   Rev 2.3   May 18 1999 10:17:32   T13AE17
+      *FAN00212 - 2. Übergabe der neuen Sourcen nach Rücknahme wg. ABEND
+      *
+      *   Rev 2.1   Apr 20 1999 14:37:22   T13AE17
+      *AAN00219 - Einheiten nun mit 2 NK-Stellen
+      *
+      *   Rev 2.0   Apr 20 1999 11:00:24   T13AE17
+      *Umstellung MFE - nun Ansi-Source
+      *
+      *   Rev 2.0   Apr 19 1999 12:52:34   T13EX26
+      *MFE-Umstellung
+      *
+      *   Rev 1.1   Apr 09 1997 16:48:30   T13AE31
+      *EINFUEHRUNG PEW
+      *
+      *---------------------------------------------------------------*
+      *****************************************************************
+      *    COPY-MEMBER: DRPA0150                                      *
+      *    --------------------------------------------------------   *
+      *    SCHNITTSTELLE FÜR DIE FUNKTION DRPA0150                    *
+      *    --------------------------------------------------------   *
+      *    ERSTELLT: GIESE                                            *
+      *    DATUM:    25.09.1996                                       *
+      *****************************************************************
+      * AENDERUNGEN:                                                 *
+      * AUFTRAG ! DATUM  !VER ! AENDERUNG                 ! NAME     *
+      * -------------------------------------------------------------*
+      *         !25.09.96!    ! NEU                       ! GIESE    *
+      *         !13.02.97!    ! ÄNDERUNG VGRUPPE, VSTATUS ! STORCH   *
+      *         !        !    !                           !          *
+      * APA00012!20.04.99! 2.1! EINHEITEN AUF 2-NACHKOMMA-! PARENT   *
+      *         !        !    ! STELLEN UMGESTELLT        !          *
+      * AAN00285!13.11.00! 2.4! PEW-HYPO                  ! HEIDER   *
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *                                                              *
+      * ENDE-LOGBUCH                                                 *
+      ****************************************************************
+      *
+      *    DIESES COPY ENTHÄLT DIE EIN- UND AUSGABEPARAMETER
+      *    FÜR DIE FUNKTION DRPA0150
+      *    AUSSER: DEM FUNKTIONSNAMEN,
+      *            DEM ERR-ERROR-BEREICH UND
+      *            DEM STANDARD-STATUS-BEREICH
+      *            (JEWEILS SEPARATE COPYS)
+      *
+      *    >>>  SELECT-ALL  <<<
+      *
+      ****************************************************************
+      *
+       01  PI-DRPA0150.
+           05  PI-DRPA0150-UFKT                PIC  X(02).
+      *   KANN BELEGT WERDEN MIT 1=LIST-FIRST, 2=LIST NEXT, 3=QUIT
+      *
+           05  PI-DRPA0150-AUSWAHL-KRITERIEN.
+               10 PI-DRPA0150-GESELL           PIC  9(02).
+               10 PI-DRPA0150-VGRUPPE          PIC  9(03).
+               10 PI-DRPA0150-S-VGRUPPE        PIC  X(01).
+               10 PI-DRPA0150-VSTATUS          PIC  X(04).
+               10 PI-DRPA0150-S-VSTATUS        PIC  X(01).
+      *
+      *
+       01  PO-DRPA0150.
+           05  PO-DRPA0150-RC                 PIC  X(003).
+               88 PO-DRPA0150-RC-OK                        VALUE 'OK '.
+               88 PO-DRPA0150-RC-EOF                       VALUE 'EOF'.
+               88 PO-DRPA0150-RC-LEER                      VALUE 'LER'.
+      *
+           05  PO-DRPA0150-ERGEBNISZEILE.
+131100*        10 PO-DRPA0150-PIN              PIC  9(007).
+131100         10 PO-DRPA0150-PIN              PIC  9(015).
+               10 PO-DRPA0150-KUNDEN-NAME      PIC  X(025).
+               10 PO-DRPA0150-KUNDEN-VNAME     PIC  X(020).
+               10 PO-DRPA0150-VSTATUS          PIC  X(004).
+               10 PO-DRPA0150-WVORDATUM        PIC  X(010).
+200499         10 PO-DRPA0150-EINHEITEN        PIC  S9(006)V99.
+               10 PO-DRPA0150-PROV-BETRAG      PIC  S9(009)V99.
+      *
+      ******* ENDE COPY-MEMBER **************************************
+

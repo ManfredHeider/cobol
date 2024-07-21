@@ -1,0 +1,62 @@
+      *---------------------------------------------------------------*
+      *    Standard für alle Objekte unter PVCS
+      *            Datum   :  November 1995
+      *            Kopf aus:  N:\PROFILE\KOPFCBL.DAT
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright 1995 ATLAS Dienstleistungs GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRPA0940.CPY  $
+      *    $Revision:   2.0  $
+      *
+      *    $Log:   L:\MF\CPY\DRPA0940.CPv  $
+      *
+      *   Rev 2.0   Feb 27 1999 14:29:54   P13SP20
+      *NT-Umstellung
+      *
+      *   Rev 1.1   11 Nov 1998 15:50:38   T01JM2S
+      *PEG-PRODUKTIONSüBERGABE
+      *
+      *   Rev 1.0   01 Apr 1998 14:16:32   P13SP99
+      *Initial revision.
+      *
+      *---------------------------------------------------------------*
+      *****************************************************************
+      *    COPY-MEMBER: DRPA0940                                      *
+      *    --------------------------------------------------------   *
+      *    NPM-TEIL                                                   *
+      *    --------------------------------------------------------   *
+      *    ERSTELLT: WOLFF                                            *
+      *    DATUM:    27.04.1998                                       *
+      *****************************************************************
+      *    VERSION
+      ****************************************************************
+      * AENDERUNGEN:                                                 *
+      * AUFTRAG ! DATUM  !VER ! AENDERUNG                 ! NAME     *
+      * -------------------------------------------------------------*
+      * AFPA0012!27.04.98! 01 ! NEU                       ! WOLFF    *
+      *         !        !    !                           !          *
+      *                                                              *
+      * ENDE-LOGBUCH                                                 *
+      ****************************************************************
+      *                                                              *
+      *    DIESES COPY ENTHÄLT EINEN TEIL DER NPM-DATEN FÜR DIE      *
+      *    ERSTELLUNG DER KONTROLLWERTE DES KONTROLLSYSTEMS          *
+      *                                                              *
+      ****************************************************************
+      *
+             30 NPM-TEIL.
+                35 PDTA-ID                          PIC S9(015)
+                                                        PACKED-DECIMAL.
+                35 PGEB-GES                         PIC S9(004) BINARY.
+                35 KNR-WAEHRUNG                     PIC S9(004) BINARY.
+                35 VSTAT-KLASSE-PMPE                PIC  X(001).
+      *
+                35 MAX-USED-PMPP-TEIL               PIC S9(004) BINARY.
+                35 PMPP-TEIL                        OCCURS 50.
+                   40 PROD-PROD-SCHL-PMPP           PIC S9(004) BINARY.
+                   40 PMPP-PG-GSMT-PROV             PIC S9(009)V9(2)
+                                                        PACKED-DECIMAL.
+      *
+      ******* ENDE COPY-MEMBER **************************************

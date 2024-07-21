@@ -1,0 +1,90 @@
+      *****************************************************************
+CCC005*    EXEC SQL DECLARE G48_PRIVATKREDIT TABLE
+CCC004*    ( G48PKVNR                       CHAR(15) NOT NULL,
+CCC004*      G48PKUKTONR                    CHAR(2) NOT NULL,
+CCC004*      G48PKWAEHRUNG                  CHAR(3) NOT NULL,
+CCC004*      G48PKOEFFDAT                   CHAR(8) NOT NULL,
+CCC004*      G48PKSCHLDAT                   CHAR(8) NOT NULL,
+CCC004*      G48PKDARLBTRG                  DECIMAL(14, 2) NOT NULL,
+CCC004*      G48PKKREDITZUSDAT              CHAR(8) NOT NULL,
+CCC004*      G48PKKREDITAUSZDAT             CHAR(8) NOT NULL,
+CCC004*      G48PKKREDITART                 CHAR(6) NOT NULL,
+CCC004*      G48PKPIN                       INTEGER NOT NULL,
+CCC004*      G48PKSALDO                     DECIMAL(14, 2) NOT NULL,
+CCC004*      G48PKSOLLZINS                  DECIMAL(6, 4) NOT NULL,
+CCC004*      G48PKANNUITAET                 DECIMAL(14, 2) NOT NULL,
+CCC004*      G48PKFAELLIGDAT                CHAR(8) NOT NULL,
+CCC004*      G48PKDELKZN                    CHAR(1) NOT NULL,
+CCC004*      G48PKIBANBELASTKTO             CHAR(34) NOT NULL,
+CCC004*      G48PKBICBELASTKTO              CHAR(11) NOT NULL,
+CCC004*      G48PKMANDREF                   CHAR(35) NOT NULL,
+CCC004*      G48PKNAMEBELASTKTO             CHAR(28) NOT NULL,
+CCC004*      G48PKIBANPK                    CHAR(34) NOT NULL,
+CCC004*      G48PKGSMLAUFZEIT               INTEGER NOT NULL,
+CCC004*      G48PKRESTLAUFZEIT              INTEGER NOT NULL,
+CCC004*      G48PKVERSUMFANGKN1             CHAR(1) NOT NULL,
+CCC004*      G48PKVERSUMFANGKN2             CHAR(1) NOT NULL,
+CCC004*      LETZTERAENDERER                CHAR(10) NOT NULL,
+CCC004*      LETZTEAENDERUNG                TIMESTAMP NOT NULL
+CCC003*    ) END-EXEC.
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE G48_PRIVATKREDIT            *
+      ******************************************************************
+       01  G48-PRIVATKREDIT-GESAMT.
+        05 NI-G48-PRIVATKREDIT-TAB.
+           10 NI-G48-PRIVATKREDIT-ELE PIC S9(04) COMP OCCURS 26 TIMES.
+        05 NI-G48-PRIVATKREDIT REDEFINES NI-G48-PRIVATKREDIT-TAB.
+           10 NI-G48PKVNR           PIC S9(4) COMP.
+           10 NI-G48PKUKTONR        PIC S9(4) COMP.
+           10 NI-G48PKWAEHRUNG      PIC S9(4) COMP.
+           10 NI-G48PKOEFFDAT       PIC S9(4) COMP.
+           10 NI-G48PKSCHLDAT       PIC S9(4) COMP.
+           10 NI-G48PKDARLBTRG      PIC S9(4) COMP.
+           10 NI-G48PKKREDITZUSDAT  PIC S9(4) COMP.
+           10 NI-G48PKKREDITAUSZDAT PIC S9(4) COMP.
+           10 NI-G48PKKREDITART     PIC S9(4) COMP.
+           10 NI-G48PKPIN           PIC S9(4) COMP.
+           10 NI-G48PKSALDO         PIC S9(4) COMP.
+           10 NI-G48PKSOLLZINS      PIC S9(4) COMP.
+           10 NI-G48PKANNUITAET     PIC S9(4) COMP.
+           10 NI-G48PKFAELLIGDAT    PIC S9(4) COMP.
+           10 NI-G48PKDELKZN        PIC S9(4) COMP.
+           10 NI-G48PKIBANBELASTKTO PIC S9(4) COMP.
+           10 NI-G48PKBICBELASTKTO  PIC S9(4) COMP.
+           10 NI-G48PKMANDREF       PIC S9(4) COMP.
+           10 NI-G48PKNAMEBELASTKTO PIC S9(4) COMP.
+           10 NI-G48PKIBANPK        PIC S9(4) COMP.
+           10 NI-G48PKGSMLAUFZEIT   PIC S9(4) COMP.
+           10 NI-G48PKRESTLAUFZEIT  PIC S9(4) COMP.
+           10 NI-G48PKVERSUMFANGKN1 PIC S9(4) COMP.
+           10 NI-G48PKVERSUMFANGKN2 PIC S9(4) COMP.
+           10 NI-LETZTERAENDERER    PIC S9(4) COMP.
+           10 NI-LETZTEAENDERUNG    PIC S9(4) COMP.
+        05 DCL-G48-PRIVATKREDIT.
+           10 G48PKVNR             PIC X(15).
+           10 G48PKUKTONR          PIC X(2).
+           10 G48PKWAEHRUNG        PIC X(3).
+           10 G48PKOEFFDAT         PIC X(8).
+           10 G48PKSCHLDAT         PIC X(8).
+           10 G48PKDARLBTRG        PIC S9(12)V9(2) USAGE COMP-3.
+           10 G48PKKREDITZUSDAT    PIC X(8).
+           10 G48PKKREDITAUSZDAT   PIC X(8).
+           10 G48PKKREDITART       PIC X(6).
+           10 G48PKPIN             PIC S9(9) USAGE COMP.
+           10 G48PKSALDO           PIC S9(12)V9(2) USAGE COMP-3.
+           10 G48PKSOLLZINS        PIC S9(2)V9(4) USAGE COMP-3.
+           10 G48PKANNUITAET       PIC S9(12)V9(2) USAGE COMP-3.
+           10 G48PKFAELLIGDAT      PIC X(8).
+           10 G48PKDELKZN          PIC X(1).
+           10 G48PKIBANBELASTKTO   PIC X(34).
+           10 G48PKBICBELASTKTO    PIC X(11).
+           10 G48PKMANDREF         PIC X(35).
+           10 G48PKNAMEBELASTKTO   PIC X(28).
+           10 G48PKIBANPK          PIC X(34).
+           10 G48PKGSMLAUFZEIT     PIC S9(9) USAGE COMP.
+           10 G48PKRESTLAUFZEIT    PIC S9(9) USAGE COMP.
+           10 G48PKVERSUMFANGKN1   PIC X(1).
+           10 G48PKVERSUMFANGKN2   PIC X(1).
+           10 LETZTERAENDERER      PIC X(10).
+           10 LETZTEAENDERUNG      PIC X(26).
+      ************************** ENDE-DCLGEN *************************

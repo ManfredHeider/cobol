@@ -1,0 +1,45 @@
+000010*---------------------------------------------------------------*
+000020*    Standard für alle Objekte unter PVCS
+000030*            Datum   :  Januar 2001
+000040*            Kopf aus:  N:\PROFILE\KOPFCPY.DAT
+000050*---------------------------------------------------------------*
+000060*
+000070*---------------------------------------------------------------*
+000080*    Copyright 2001 ATLAS Dienstleistungs GmbH
+000090*---------------------------------------------------------------*
+000100*    $Workfile:   WDKI0084.CPY  $
+000110*    $Revision:   2.1  $
+000120*
+000130*    $Log:   L:/mf/cpy/WDKI0084.CPv  $
+000140*
+000150*   Rev 2.1   Jun 03 2002 09:32:18   T13EX27
+000160*AKI00289 DB-Änderung für neue VP-Analyse
+000170*
+000180*   Rev 2.0   May 17 2002 12:04:34   p13sp16
+000190*Archiverstellung
+000200*
+000210*---------------------------------------------------------------*
+000220  05 EA-ZIELWUNSCHZEITRAUM-GESAMT.
+000230   10 EA-NI-ZIELWUNSCHZEITRAUM-TAB.
+000240     20 EA-NI-ZIELWUNSCHZEITRAUM-ELE  PIC X
+000250            OCCURS 7 TIMES.
+000260   10 EA-NI-ZIELWUNSCHZEITRAUM
+000270           REDEFINES EA-NI-ZIELWUNSCHZEITRAUM-TAB.
+000280     20 EA-NI-ZIELEPERSONENID     PIC X.
+000290     20 EA-NI-ZIELEPERSONENROLLE  PIC X.
+000300     20 EA-NI-ZIELEZEITRAUM       PIC X.
+000310     20 EA-NI-ZIELELAUFENDENUM    PIC X.
+000320     20 EA-NI-ZIELETEXT           PIC X.
+000330     20 EA-NI-ZIELEDATUM          PIC X.
+000340     20 EA-NI-ZIELEZUSATZINFO     PIC X.
+000350   10 EA-DCL-ZIELWUNSCHZEITRAUM.
+000360     20 EA-ZIELEPERSONENID      PIC X(13).
+000370     20 EA-ZIELEPERSONENROLLE   PIC X(1).
+000380     20 EA-ZIELEZEITRAUM        PIC -----9    .
+000390     20 EA-ZIELELAUFENDENUM     PIC -----9    .
+000400     20 EA-ZIELETEXT            PIC X(50).
+000410     20 EA-ZIELEDATUM           PIC X(10).
+000420     20 EA-ZIELEZUSATZINFO.
+000430        49 EA-ZIELEZUSATZINFO-LEN  PIC -----9    .
+000440        49 EA-ZIELEZUSATZINFO-TEXT  PIC X(100).
+000450******************************************************************

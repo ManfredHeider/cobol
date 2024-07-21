@@ -1,0 +1,448 @@
+      *---------------------------------------------------------------*
+      *    Standard für alle Objekte unter PVCS
+      *            Datum   :  November 1995
+      *            Kopf aus:  N:\PROFILE\KOPFCBL.DAT
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright (c) 2020 ATLAS Dienstleistungen f. V. GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRKI0809.CPY  $
+      *    $Revision:   2.24  $
+      *
+      *    $Log:   L:/mf/CPY/DRKI0809.CPv  $
+      *
+      *   Rev 2.24   Feb 04 2020 12:56:42   t13ac20
+      *AKI01757: VDL-Leben: HOST Verarbeitung und Speicherung der D
+      *aten für die neuen Pflegetarife (pflegeSmart und pflegePro) 
+      *b2
+      *
+      *   Rev 2.23   Feb 04 2020 07:37:28   t13ac20
+      *AKI01757: VDL-Leben: HOST Verarbeitung und Speicherung der D
+      *aten für die neuen Pflegetarife (pflegeSmart und pflegePro)
+      *b2
+      *
+      *   Rev 2.22   Aug 14 2018 09:30:44   t13ac17
+      *AKI01605: G20 EVWS - neue Produkte zum RT 09/2018 Standard-OZP
+      *
+      *   Rev 2.21   Apr 04 2017 14:22:38   t13ac20
+      *AKI01503: OZPs bereinigen
+      *
+      *   Rev 2.20   Mar 15 2017 14:30:16   t13ex27
+      *AKI01492: AML-Änderungen zum RT 03/2017OZPs
+      *
+      *   Rev 2.19   Jan 17 2017 10:57:58   t13ex27
+      *AKI01488: AM-Leben Konsortialverträge
+      *
+      *   Rev 2.18   Jun 24 2016 09:03:48   t13ex48
+      *AKI01434: AML-Neue Produkte zum RT 06/16: Rechenwerte
+      *
+      *   Rev 2.17   Mar 18 2015 17:19:30   t13ex48
+      *AKI01349: AMLeben: VEP-Bestandsmasken: OZP LRW
+      *
+      *   Rev 2.16   Jun 26 2014 14:03:28   t13ex48
+      *AKI01296: VERMÖGENS- & EINKOMMENSPLAN - VEP: Cobol RW
+      *
+      *   Rev 2.15   Mar 28 2014 01:18:02   t13ex48
+      *AKI01153: Neues Verfahren: Aktualisierung AML-Rechenwerte
+      *
+      *   Rev 2.14   Aug 31 2011 12:40:16   t13ex48
+      *AKI01065: AMLeben - Einführung Impulsprodukt - VASP: Source RW
+      *
+      *   Rev 2.13   Jan 04 2011 13:45:12   t13ex27
+      *AKI00961: Anzeige "Frühester Rentenbeginn" in KI-Vertragsdat
+      *en-OZP
+      *
+      *   Rev 2.12   Dec 10 2010 10:23:56   t13ex48
+      *AKI00969: AML-DTA: neue Felder zum RT 06/2010: RW
+      *
+      *   Rev 2.11   Sep 07 2009 15:36:06   t13ex27
+      *AKI00860: Anzeige " Abtretung" bei LV-Verträgen-OZPs und Map
+      *ping
+      *
+      *   Rev 2.10   Aug 13 2009 11:53:58   t13ex27
+      *AKI00860: Anzeige " Abtretung" bei LV-Verträgen-OZPs und Map
+      *ping
+      *
+      *   Rev 2.9   02 Feb 2009 10:18:20   t13ex27
+      *AKI00768: CR 22257 - Bearbeitungskennzeichen Rechenwerte-DB-
+      *Änderung
+      *
+      *   Rev 2.8   09 Jun 2008 15:58:14   t13ex27
+      *AKI00711: Neue DTA-Felder AMLeben OZPs
+      *
+      *   Rev 2.7   04 Oct 2006 15:07:10   t13ex39
+      *AKI00615: Einführung Pflegerentenversicherung
+      *
+      *   Rev 2.6   27 Sep 2006 10:37:14   t13ex39
+      *AKI00619: neuer Unfall Plus Tarif "50+"
+      *
+      *   Rev 1.0   12 Jan 1999 15:11:48   P13SP19
+      *Initial revision.
+      *
+      *---------------------------------------------------------------*
+      *****************************************************************
+      *    COPY-MEMBER: DRKI0809                                      *
+      *    --------------------------------------------------------   *
+      *    SCHNITTSTELLE FÜR DIE FUNKTION DRKI0809                    *
+      *    --------------------------------------------------------   *
+      ****************************************************************
+      *   ERZEUGT MIT OZPGEN         04.02.2020 / 11:40:53 / T13AC20
+      *****************************************************************
+      *    VERSION
+      ****************************************************************
+      * AENDERUNGEN:                                                 *
+      * AUFTRAG ! DATUM  !VER ! AENDERUNG                 ! NAME     *
+      * -------------------------------------------------------------*
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *                                                              *
+      * ENDE-LOGBUCH                                                 *
+      ****************************************************************
+      *
+      *    DIESES COPY ENTHÄLT DIE EIN- UND AUSGABEPARAMETER
+      *    FÜR DIE FUNKTION DRKI0809
+      *    AUSSER: DEM FUNKTIONSNAMEN,
+      *            DEM ERR-ERROR-BEREICH UND
+      *            DEM STANDARD-STATUS-BEREICH
+      *            (JEWEILS SEPARATE COPYS)
+      *
+      *    >>>  UPDATE  <<<
+      *
+      ****************************************************************
+      *
+       01  PI-DRKI0809.
+           05  PI-DRKI0809-KEY.
+ 
+ 
+ANF   *        %M_PI_KEY%
+             10 PI-DRKI0809-LRWVERSTARLFDNR   PIC S9(4) COMP.
+             10 PI-DRKI0809-LRWVERTRAGSID   PIC  X(0013).
+END   *
+ 
+           05  PI-DRKI0809-NI.
+ 
+ANF   *        %M_PI_DATEN_NI%
+             15 PI-DRKI0809-NI-LRWABLEISTSIM    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBLSTSMBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWABLEISTVOR    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBLSTVRBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBLSTVRWKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWABZUG         PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWABZUGBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWAKTVTRWERT    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWKTVTRWRTBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSZHLBTBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSZHLBTRG       PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBGBRFPHS       PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBTRFRSM        PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWBETRFSUMBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWBONUSRENTE    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBNSRNTBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBSPBGRNTZHLG   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWBTFRISTWERT   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBTFRSTWRTSK    PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWBTFRMINDWERT  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWBTFRMNDWRTSK   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWBTFRSUMSK     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWBTFRSUMSKBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWDATUMSTAND    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWDTMSTNDSM      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWEINKOMTOPF    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWNKMTPFBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWERMABL        PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWERMABLBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWFMBTFRTT      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWFMBTFRTTINFO  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWFMBTFRTTSK    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWFMBTFRTTSKBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWFORENDITE     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWFORENDITEBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWFRMGLBGRNT     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARABLRNTPRL  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRBRNTPRLBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARLSTABL     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARLSTABLBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARPFRENTANW  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRPFRNTNWBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRPFRNTBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARPFRENTE1   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARPFRENTE2   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARPFRENTE3   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARPFRENTE4   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARPFRENTE5   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRVGBLKPBF     PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRVGBLKPKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRVGBLSTBL     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGARVGABLSTKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRVRGKPBBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRVRGKPBF      PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRVRGLSTBBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGRVRGLSTBL     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGBURENTANW    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGBRNTNWBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGBURENTE      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGBURENTEBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGBUZVRENTE    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGBZVRNTBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESEURENTE    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGSRNTBKZ       PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGSZBNRBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESEUZBONRNT  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESEUZVRENTE  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGSZVRNTBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESPFRENTANW  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGSPFRNTNWBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGSPFRNTBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESPFRENTE1   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESPFRENTE2   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESPFRENTE3   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESPFRENTE4   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGESPFRENTE5   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGKIRENTE      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGKIRENTEBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGPFRENTE      PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWGPFRNTNBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGPFRENTEANW   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGPFRENTEBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGUZVSUMME     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWGUZVSUMMEBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWKAPABFGAR     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWKAPABFGARBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWKPBFNKDBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWKAPABFINKDYN  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWKAPABFVOR     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWKAPABFVORBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWKONVGH        PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWKONVGHBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWLSTPROZPFL1   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWLSTPROZPFL2   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWLSTPROZPFL3   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWLSTPROZPFL4   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWLSTPROZPFL5   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWMGLDRLBTR      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWMOEGLDBBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWPFSTAFFELKZN  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWBUZV       PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWBUZVBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWERTGES     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWERTGESBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWEUZV       PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWEUZVBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWHV         PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWHVBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWPZV        PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWPZVBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWSK         PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWSKBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWTZV        PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWRKWTZVBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSCHRHRSBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSCHRHRSRV      PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSMBTBWRKBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWSUMBETBWRRK   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWSUMDK         PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWSUMDKBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWSUMRKWNATAZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSMRKWNTZBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSMTLRNTN       PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWSMTLRNTBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWUEBETTOD      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWUEBETTODBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRMGTPBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVERMOEGTOPF   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRSZDRLBTR     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVORAUSZDBBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRKPBFNBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRKPBFTNTZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRLSTBLNBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRLSTBLNTZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRVRGKPBBKZ    PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRVRGKPBF      PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRVRGLSTBBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVRVRGLSTBL     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVSRSK         PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVSRSKBKZ      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVSRSKUEB      PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVSRSKUEBBKZ   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVSRTOD        PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVSRTODBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVVGKAPABFSIM  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVVGLSTABLSIM  PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWVVGLSTASIBKZ  PIC S9(4) COMP.
+             15 PI-DRKI0809-N-LRWVVKPBFSBKZ     PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWZAHLBEITRAG   PIC S9(4) COMP.
+             15 PI-DRKI0809-NI-LRWZAHLBEITRBKZ  PIC S9(4) COMP.
+END   *
+ 
+           05  PI-DRKI0809-DATEN.
+ 
+ANF   *        %M_PI_DATEN%
+             10 PI-DRKI0809-LRWABLEISTSIM   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWABLEISTSIMBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWABLEISTVOR   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWABLEISTVORBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWABLEISTVORWKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWABZUG   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWABZUGBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWAKTVTRWERT   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWAKTVTRWERTBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWAUSZAHLBETBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWAUSZAHLBETRAG   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBEGABRUFPHASE   PIC  X(010).
+             10 PI-DRKI0809-LRWBEITRFREIESUM   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBETRFSUMBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWBONUSRENTE   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBONUSRENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWBSPBEGRNTZHLG   PIC  X(010).
+             10 PI-DRKI0809-LRWBTFRISTWERT   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBTFRISTWERTSK   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBTFRMINDWERT   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBTFRMINDWRTSK   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBTFRSUMSK   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWBTFRSUMSKBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWDATUMSTAND   PIC  X(010).
+             10 PI-DRKI0809-LRWDATUMSTANDSIM   PIC  X(010).
+             10 PI-DRKI0809-LRWEINKOMTOPF   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWEINKOMTOPFBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWERMABL   PIC  X(010).
+             10 PI-DRKI0809-LRWERMABLBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWFMBTFRTT   PIC  X(010).
+             10 PI-DRKI0809-LRWFMBTFRTTINFO   PIC  X(0001).
+             10 PI-DRKI0809-LRWFMBTFRTTSK   PIC  X(010).
+             10 PI-DRKI0809-LRWFMBTFRTTSKBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWFORENDITE   PIC S9(3)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWFORENDITEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWFRMGLBEGRENTE   PIC  X(010).
+             10 PI-DRKI0809-LRWGARABLRNTPRL   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARABRNTPRLBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARLSTABL   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARLSTABLBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARPFRENTANW   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARPFRENTANWBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARPFRENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARPFRENTE1   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARPFRENTE2   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARPFRENTE3   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARPFRENTE4   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARPFRENTE5   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARVGABLKAPABF   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARVGABLKAPKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARVGABLSTABL   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARVGABLSTKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARVORGKAPABBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARVORGKAPABF   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGARVORGLSTABBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGARVORGLSTABL   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGBURENTANW   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGBURENTANWBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGBURENTE   PIC S9(7)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGBURENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGBUZVRENTE   PIC S9(7)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGBUZVRENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGESEURENTE   PIC S9(7)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESEURENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGESEUZBONRBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGESEUZBONRNT   PIC S9(7)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESEUZVRENTE   PIC S9(7)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESEUZVRNTBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGESPFRENTANW   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESPFRENTANWBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGESPFRENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGESPFRENTE1   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESPFRENTE2   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESPFRENTE3   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESPFRENTE4   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGESPFRENTE5   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGKIRENTE   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGKIRENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGPFRENTE   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGPFRENTEANBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGPFRENTEANW   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGPFRENTEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWGUZVSUMME   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWGUZVSUMMEBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWKAPABFGAR   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWKAPABFGARBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWKAPABFINKDBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWKAPABFINKDYN   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWKAPABFVOR   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWKAPABFVORBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWKONSORTIALKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWKONVGH   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWKONVGHBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWLSTPROZPFL1   PIC S9(3)V COMP-3.
+             10 PI-DRKI0809-LRWLSTPROZPFL2   PIC S9(3)V COMP-3.
+             10 PI-DRKI0809-LRWLSTPROZPFL3   PIC S9(3)V COMP-3.
+             10 PI-DRKI0809-LRWLSTPROZPFL4   PIC S9(3)V COMP-3.
+             10 PI-DRKI0809-LRWLSTPROZPFL5   PIC S9(3)V COMP-3.
+             10 PI-DRKI0809-LRWMOEGLDARLBETR   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWMOEGLDBBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWPFSTAFFELKZN   PIC  X(0001).
+             10 PI-DRKI0809-LRWRKWBUZV   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWRKWBUZVBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWRKWERTGES   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWRKWERTGESBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWRKWEUZV   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWRKWEUZVBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWRKWHV   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWRKWHVBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWRKWPZV   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWRKWPZVBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWRKWSK   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWRKWSKBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWRKWTZV   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWRKWTZVBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWSICHERHRESBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWSICHERHRESERV   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWSUMBETBWRKBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWSUMBETBWRRK   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWSUMDK   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWSUMDKBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWSUMRKWNATAZ   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWSUMRKWNATAZBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWSUMTEILRENTEN   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWSUMTEILRNTBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWUEBETTOD   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWUEBETTODBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVERMOEGTOPBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVERMOEGTOPF   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVORAUSZDARLBETR   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVORAUSZDBBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVORKAPABFNABKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVORKAPABFTNATAZ   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVORLSTABLNABKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVORLSTABLNATAZ   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVORVORGKAPABBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVORVORGKAPABF   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVORVORGLSTABBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVORVORGLSTABL   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVSRSK   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVSRSKBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVSRSKUEB   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVSRSKUEBBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVSRTOD   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVSRTODBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVVGKAPABFSIM   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVVGLSTABLSIM   PIC S9(11)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWVVGLSTASIBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWVVKAPABFSIBKZ   PIC  X(0001).
+             10 PI-DRKI0809-LRWZAHLBEITRAG   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI0809-LRWZAHLBEITRBKZ   PIC  X(0001).
+END   *
+ 
+      *  INITIALISIERUNG NULL-INDIKATOR
+       01  PI-DRKI0809-NI1.
+           05 PI-DRKI0809-INIT-TAB1 PIC S9(04) COMP VALUE -1
+                                  OCCURS 150.
+       01  PI-DRKI0809-NI7.
+           05 PI-DRKI0809-INIT-TAB7 PIC S9(04) COMP VALUE -7
+                                  OCCURS 150.
+      *
+       01  PO-DRKI0809.
+           05  PO-DRKI0809-RC                     PIC  X(003).
+               88 PO-DRKI0809-RC-OK               VALUE 'OK '.
+               88 PO-DRKI0809-RC-NOT-FOUND        VALUE 'NFD'.
+      *
+      ******* ENDE COPY-MEMBER ***************************************
+

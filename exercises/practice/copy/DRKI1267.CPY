@@ -1,0 +1,77 @@
+      *---------------------------------------------------------------*
+      *    Standard für alle Objekte unter PVCS
+      *            Datum   :  Januar 2001
+      *            Kopf aus:  N:\PROFILE\KOPFCPY.DAT
+      *---------------------------------------------------------------*
+      *
+      *---------------------------------------------------------------*
+      *    Copyright 2001 ATLAS Dienstleistungs GmbH
+      *---------------------------------------------------------------*
+      *    $Workfile:   DRKI1267.CPY  $
+      *    $Revision:   2.2  $
+      *
+      *    $Log:   L:/mf/CPY/DRKI1267.CPv  $
+      *
+      *   Rev 2.2   Apr 29 2009 14:58:10   t13ex14
+      *AKI00818: Tabelle VERTRAGRABATT OZP-Objekte
+      *
+      *   Rev 2.0   05 Jul 2001 17:07:04   p13sp99
+      *- Neuerstellung -
+      *
+      *---------------------------------------------------------------*
+      *****************************************************************
+      *    COPY-MEMBER: DRKI1267                                      *
+      *    --------------------------------------------------------   *
+      *    SCHNITTSTELLE FÜR DIE FUNKTION DRKI1267                    *
+      *    --------------------------------------------------------   *
+      ****************************************************************
+      *   erzeugt mit genOZP - (c) PMSmicado  22.04.2009/15:54:27
+      *****************************************************************
+      *    VERSION
+      ****************************************************************
+      * AENDERUNGEN:                                                 *
+      * AUFTRAG ! DATUM  !VER ! AENDERUNG                 ! NAME     *
+      * -------------------------------------------------------------*
+      *         !        !    !                           !          *
+      *         !        !    !                           !          *
+      *                                                              *
+      * ENDE-LOGBUCH                                                 *
+      ****************************************************************
+      *
+      *    DIESES COPY ENTHÄLT DIE EIN- UND AUSGABEPARAMETER
+      *    FÜR DIE FUNKTION DRKI1267
+      *    AUSSER: DEM FUNKTIONSNAMEN,
+      *            DEM ERR-ERROR-BEREICH UND
+      *            DEM STANDARD-STATUS-BEREICH
+      *            (JEWEILS SEPARATE COPYS)
+      *
+      *    >>>  UPDATE  <<<
+      *
+      ****************************************************************
+      *
+       01  PI-DRKI1267.
+           05  PI-DRKI1267-KEY.
+
+
+             10 PI-DRKI1267-VRALFDNR   PIC S9(4) COMP.
+             10 PI-DRKI1267-VRAVERTRAGSID   PIC X(13).
+             
+
+           05  PI-DRKI1267-DATEN.
+
+
+             10 PI-DRKI1267-VRARABEINHEIT   PIC S9(4) COMP.
+             10 PI-DRKI1267-NI-VRARABEINHEIT   PIC S9(4) COMP.
+             10 PI-DRKI1267-VRARABTEXT   PIC X(26).
+             10 PI-DRKI1267-VRARABWERT   PIC S9(9)V9(2) COMP-3.
+             10 PI-DRKI1267-NI-VRARABWERT   PIC S9(4) COMP.
+             10 PI-DRKI1267-VRARABWERWKZ   PIC X(01).
+             
+
+      *
+       01  PO-DRKI1267.
+           05  PO-DRKI1267-RC                 PIC  X(003).
+               88 PO-DRKI1267-RC-OK                        VALUE 'OK '.
+               88 PO-DRKI1267-RC-NOT-FOUND                 VALUE 'NFD'.
+      *
+      ******* ENDE COPY-MEMBER ***************************************
