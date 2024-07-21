@@ -5,7 +5,7 @@ function verify_exercise ($practiceExerciseDir) {
     Write-Output "MH slug -> $slug"
     $implementationFile="$dir/.meta/proof.ci.cob"
     Write-Output "MH implementationFile -> $implementationFile"
-    $stubFile="$dir/src/$slug.cob"
+    $stubFile="$dir/src/$slug.CBL"
     Write-Output "MH stubFile -> $stubFile"
     $stubBackupFile="$stubFile.bak"
     Copy-Item $stubFile -Destination $stubBackupFile
