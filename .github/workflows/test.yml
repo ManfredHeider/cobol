@@ -1,39 +1,22 @@
-# This workflow will do a clean install of the dependencies and run tests across different versions
-#
-# Replace <track> with the track name
-# Replace <image-name> with an image to run the jobs on
-# Replace <action to setup tooling> with a github action to setup tooling on the image
-# Replace <install dependencies> with a cli command to install the dependencies
-#
-# Find Github Actions to setup tooling here:
-# - https://github.com/actions/?q=setup&type=&language=
-# - https://github.com/actions/starter-workflows/tree/main/ci
-# - https://github.com/marketplace?type=actions&query=setup
-#
-# Requires scripts:
-# - bin/test
 
-name: COBOL / Test
+name: test
 
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
 
 jobs:
   ci:
-    runs-on: ubuntu-20.04
+    runs-on: windows-2022,
+        shell: pwsh
+        run: dir C:\
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5
-
-      - name: Setup COBOL
-        run: sudo apt update && sudo apt install -y gnucobol
-
-      - name: Fetch CobolCheck
-        run: bin/fetch-cobolcheck
-
-      - name: Run tests for all exercises
-        run: bin/test
+      - name: Check and list GITHUB_WORKSPACE
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_WORKSPACE) {
+            Write-Host "GITHUB_WORKSPACE is set to: $env:GITHUB_WORKSPACE"
+            Get-ChildItem -Path $env:GITHUB_WORKSPACE -Recurse
+          } else {
+            Write-Error "GITHUB_WORKSPACE is not set."
+            exit 1
+          }
