@@ -6,13 +6,15 @@ on:
 
 jobs:
   ci:
-    runs-on: windows-2022,
-        shell: pwsh
-        run: dir C:\
+    runs-on: windows-2022
+    steps:
+     - name: Anzeige C Laufwerk in VM
+       shell: pwsh
+       run: dir C:\
 
-      - name: Check and list GITHUB_WORKSPACE
-        shell: pwsh
-        run: |
+     - name: Check and list GITHUB_WORKSPACE
+       shell: pwsh
+       run: |
           if ($env:GITHUB_WORKSPACE) {
             Write-Host "GITHUB_WORKSPACE is set to: $env:GITHUB_WORKSPACE"
             Get-ChildItem -Path $env:GITHUB_WORKSPACE -Recurse
