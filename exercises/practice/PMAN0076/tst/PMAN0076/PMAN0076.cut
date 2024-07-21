@@ -1,0 +1,14 @@
+      *****************************************************************
+      * Template PMAN0076.cut zur Erstellung von Unittests
+      *****************************************************************
+      TestSuite "Unittests Programm PMAN0076.CBL expectations!"
+
+      TestCase "Umwandeln kleine Umlaute zu GROÃŸen Umlauten"
+      move 'äöü' to z-umlaute-gross
+      perform U12-UMLAUTE-GROSS
+      expect z-umlaute-gross = 'ÄÖÜ'
+
+      TestCase "Keine Umwandlung"
+      move '@€' to z-umlaute-gross
+      perform U12-UMLAUTE-GROSS
+      expect z-umlaute-gross = '@€'
