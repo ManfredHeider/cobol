@@ -11,6 +11,10 @@ jobs:
      - name: Anzeige C Laufwerk in VM
        shell: pwsh
        run: dir C:\
+     - name: Anzeige D Laufwerk in VM
+       shell: pwsh
+       run: dir D:\
+
 
      - name: Check and list GITHUB_WORKSPACE
        shell: pwsh
